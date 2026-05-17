@@ -15,7 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   either-or fallback could run, making the documented batch mode
   unreachable. `entity_id` is now `Option<String>` on both param
   structs; handlers return `"either entity_id or entity_ids is
-  required"` when both are absent. (#91)
+  required"` when both are absent, and reject empty `entity_ids`
+  batches. (#91)
 
 ## [0.8.3] - 2026-04-14
 

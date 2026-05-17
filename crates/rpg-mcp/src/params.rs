@@ -309,8 +309,8 @@ mod tests {
     #[test]
     fn fetch_node_batch_only_payload_deserializes() {
         // Reproduces the bug: caller supplies entity_ids (batch) without entity_id.
-        // Today serde rejects with `missing field 'entity_id'` even though the
-        // handler is written to fall back when entity_ids is provided.
+        // Before the fix, serde rejected this with `missing field 'entity_id'`
+        // before the handler could use entity_ids.
         let payload = serde_json::json!({
             "entity_ids": [
                 "docker/fetch-runtime-config.mjs:main",
